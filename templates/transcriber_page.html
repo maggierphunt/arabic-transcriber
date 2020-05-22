@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- title: CHANGE ME -->
+        <title>Arabic Alphabet Transcriber</title>
+        
+    <!-- stylesheets -->
+        <link rel="stylesheet" href="../static/css/transcriber_stylesheet.css">
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- scripts-->
+        <script src="../static/js/transcriber_script.js"></script>
+    
+    <!-- meta -->
+        <meta name="author" content="Maggie Hunt">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="A transcription tool, to convert the Ltin and Arabic alphabets.">
+        <meta name="keywords" content="python,HTML,CSS,javascript,Arabic,transcrier,transcription,cursive,BiDi,reshaper,arabic_reshaper,coding,programming">
+        
+    </head>
+    <body>
+        <div class="content_box">
+        <h1>Welcome to the Arabic transcriber</h1>
+        <p>Please enter your text to transcribe. This transcriber works with MSA pronunciations. 
+            <br>Please see below for a guide for specific letters, if you are typing with the Latin Alphabet:
+            <br>
+            <ul>
+                <li>Use H for and h for</li>
+                <li>Use S for and s for</li>
+                <li>Use D for and d for</li>
+                <li>Use q/Q for and k/K for</li>
+                <li>Use A for and a for</li>
+                <li>Use w/W or U for and u for</li>
+                <li>Use y/Y or I for and i for</li>
+            </ul>
+        </p>
+
+        <form>
+
+        </form>
+
+        <div><h2>See your results below:</h2><div class="text_box"></div>
+        <form methods="post" action="/">
+            <button type="submit" class="download_button"><a href="data:text/txt;base64, {{ plot_url }}" download="Transcription">Download transcription
+                </a></button></form></div>
+            </div>
+        </body>
+</html>

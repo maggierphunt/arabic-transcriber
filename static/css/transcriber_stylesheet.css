@@ -1,0 +1,41 @@
+body {
+    background-image: url("../images/Sahara.jpg"); no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+   }
+
+h1 {
+    font-family: 'Markazi Text', serif;
+}
+h2 {
+    font-family: 'Markazi Text', serif;
+}
+p {
+    font-family: 'Markazi Text', serif;}
+
+/*content boxes*/
+
+.content_box {
+    background-color: white;
+    opacity: 50%;
+}
+
+.text_box {
+    border: black;
+    font-family: 'Markazi Text', serif;
+}
+
+
+/*button code*/
+.download_button {
+    background-color: green;
+    color: white;
+}
+
+.download_button a{
+    text-decoration: none;
+    color: white;
+}
