@@ -4,13 +4,15 @@ from bidi.algorithm import get_display
 
 app = Flask("transcription_app") #making an app
 
-@app.route("/", methods=['GET', 'POST'])    #@ makes it a 'decorator'. line tells peple where to look inside flask framework. Decorators always followed by function.
+@app.route("/")    #@ makes it a 'decorator'. line tells peple where to look inside flask framework. Decorators always followed by function.
 def landing_page():
     return render_template("transcriber_page.html")
 
-@app.route("/transliteration", methods=['GET', 'POST'])    #@ makes it a 'decorator'. line tells peple where to look inside flask framework. Decorators always followed by function.
-def transcribe():
-    userInput = input()
+@app.route("/transcribed", methods=['POST'])
+def transcribe(TextToTranscribe_Now):
+    TextToTranscribe_Now = form.data
+    form_data = request.form
+    form_data["TextToTranscribe"]
     characters = {
     "ʾ" : "ء",
     "b" :"ب",
@@ -64,13 +66,15 @@ def transcribe():
     "ee" : "ي" , #needs rule
     "y": "ي" #needs rule
     }
-    result = ' '.join(characters[character] for character in myString)
-    user_result = result
-    reshaped_text = arabic_reshaper.reshape(user_result);
-    bidi_text = get_display(reshaped_text);
-    print(bidi_text);
+    transcriber_result = ' '.join(characters[character] for character in TextToTranscribe)
+    reshaped_text = arabic_reshaper.reshape(transcriber_result)
+    print(reshaped_text)
+    bidi_text = get_display(reshaped_text)
+    print(bidi_text)
+    transcribed_text = bidi_text
+    print (transcribed_text)
+    return render_template("transcriber_page.html")
 
-    return render_template("transcriber_page.html", form=form)
 #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
 
 app.run(debug=True) #runs the app. the debug part - unlocks debugging feature.

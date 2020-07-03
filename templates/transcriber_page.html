@@ -29,10 +29,10 @@
             </ul>
         </p>
 
-        <form>
+        <form id=transcriberForm method="post" action="/transcribed" onsubmit="transcribe(TextToTranscribe_Now)">
             <div class="form-group">
                 <label for="TextToTranscribe">What would you like to transcribe?</label>
-                <textarea class="form-control" id="TextToTranscribe" rows="3" placeholder="Enter text here" required></textarea>
+                <textarea class="form-control" id="TextToTranscribe" name="TextToTranscribe" rows="3" placeholder="Enter text here" required></textarea>
               </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
@@ -40,11 +40,15 @@
             </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
-        <div><h2>See your results below:</h2><div class="text_box"></div>
+        {% if TextToTranscribe %}
+ <div><h2>See your results below:</h2><div class="text_box"></div>
+        <p>{{transcribed_text}}</p>
         <form methods="post" action="/">
-            <button type="submit" class="download_button"><a href="data:text/txt;base64, {{ plot_url }}" download="Transcription">Download transcription
+            <button type="submit" class="download_button"><a href="data:text/txt" download="Transcription">Download transcription
                 </a></button></form></div>
             </div>
+            {% else %}
+            <p>Your transcription will appear here.</p>
+            {% endif %}
         </body>
 </html>
