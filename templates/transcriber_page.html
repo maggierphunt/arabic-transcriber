@@ -7,8 +7,9 @@
     <!-- stylesheets -->
         <link rel="stylesheet" href="../static/css/transcriber_stylesheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- scripts-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+       
+        <!-- scripts-->
         <script src="../static/js/transcriber_script.js"></script>
     
     <!-- meta -->
@@ -24,21 +25,20 @@
         <div class="content_box">
         <h1>Welcome to the Arabic transcriber</h1>
         <p>Please enter your text to transcribe. This transcriber works with MSA pronunciations. 
-            <br>Please see below for a guide for specific letters, if you are typing with the Latin Alphabet:
-            <br>
-            <ul>
-                <li>Use H for and h for</li>
-                <li>Use S for and s for</li>
-                <li>Use D for and d for</li>
-                <li>Use q/Q for and k/K for</li>
-                <li>Use A for and a for</li>
-                <li>Use w/W or U for and u for</li>
-                <li>Use y/Y or I for and i for</li>
+            <br>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf">IJMES Transliteration System</a> as a guide on Western transcription
             </ul>
         </p>
 
         <form>
-
+            <div class="form-group">
+                <label for="TextToTranscribe">What would you like to transcribe?</label>
+                <textarea class="form-control" id="TextToTranscribe" rows="3" placeholder="Enter text here" required></textarea>
+              </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                <label class="form-check-label" for="exampleCheck1">I confirm that I understand that this website is for academic purposes only, and I will verify that my transcription is accurate before using it for personal, professional or political purposes.</label>
+            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
         <div><h2>See your results below:</h2><div class="text_box"></div>
