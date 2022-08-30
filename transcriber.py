@@ -1,3 +1,5 @@
+from pydoc import TextDoc
+from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request, Response
 import arabic_reshaper
 from bidi.algorithm import get_display
@@ -9,11 +11,15 @@ def landing_page():
     return render_template("transcriber_page.html")
 
 @app.route("/transcribed", methods=['POST'])
-def transcribe(TextToTranscribe_Now):
-    TextToTranscribe_Now = form.data
-    form_data = request.form
-    form_data["TextToTranscribe"]
+def transcribe():
+    
+    form_data = request.form[inputText]
+    string_of_text = tostring(form_data)
+    TextToTranscribe = list(string_of_text)
+
+    #mapping
     characters = {
+    " " : " ",
     "ʾ" : "ء",
     "b" :"ب",
     "t" : "ت",
@@ -66,6 +72,7 @@ def transcribe(TextToTranscribe_Now):
     "ee" : "ي" , #needs rule
     "y": "ي" #needs rule
     }
+
     transcriber_result = ' '.join(characters[character] for character in TextToTranscribe)
     reshaped_text = arabic_reshaper.reshape(transcriber_result)
     print(reshaped_text)

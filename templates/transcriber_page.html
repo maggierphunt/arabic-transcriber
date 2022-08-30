@@ -2,8 +2,8 @@
 <html>
     <head>
     <!-- title: CHANGE ME -->
-        <title>Arabic Alphabet Transcriber</title>
-        
+        <title>Arabic Transcriber</title>
+        <link rel="icon" href="../static/images/meem.png">
     <!-- stylesheets -->
         <link rel="stylesheet" href="../static/css/transcriber_stylesheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
@@ -23,20 +23,20 @@
     </head>
     <body>
         <div class="content_box">
-        <h1>Welcome to the Arabic transcriber</h1>
+        <h1>Welcome to the Arabic Transcriber</h1>
         <p>Please enter your text to transcribe. This transcriber works with MSA pronunciations. 
             <br>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide on Western transcription.
             </ul>
         </p>
 
-        <form id=transcriberForm method="post" action="/transcribed" onsubmit="transcribe(TextToTranscribe_Now)">
+        <form id=transcriberForm method="post" action="/transcribed" onsubmit="transcribe(inputText)">
             <div class="form-group">
                 <label for="TextToTranscribe">What would you like to transcribe?</label>
-                <textarea class="form-control" id="TextToTranscribe" name="TextToTranscribe" rows="3" placeholder="Enter text here" required></textarea>
+                <textarea class="form-control" id="inputText" name="inputText" rows="3" placeholder="Enter text here" required></textarea>
               </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                <label class="form-check-label" for="exampleCheck1">I confirm that I understand that this website is for academic purposes only, and I will verify that my transcription is accurate before using it for personal, professional or political purposes.</label>
+                <label class="form-check-label" for="exampleCheck1">I understand that this website is for academic purposes only, and I will independently verify that my transcription is accurate before using it for personal, professional or political purposes.</label>
             </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -50,8 +50,17 @@
             {% else %}
             <p>Your transcription will appear here.</p>
             {% endif %}
-        </body>
+        <hr>
+   </body>
         <footer>
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maggierph" data-color="#ffffff" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" ></script>
-        </footer>
+            <div class="footer-flex">
+            <div><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maggierph" data-color="#ffffff" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" ></script></div>
+            <div>
+                <a href="https://www.linkedin.com/in/maggierphunt/" title="Connect on Linkedin" target=blank><img src="../static/images/linkedinicon.png" alt="Reach out on Linkedin" style="width:auto;height:18px;"></a>
+                <a href="https://github.com/maggierphunt/arabic-transcriber" title="View on GitHub" target=blank><img src="../static/images/githubicon.png" alt="See the code!" style="width:auto;height:21px;"></a>
+                <a href="https://twitter.com/intent/tweet?text=Have%20you%20used%20the%20arabic%20Transcriber%20yet?%20Go%20to%20cadence-313811.appspot.com" title="Tweet about Arabic Transcriber" target=blank><img src="../static/images/twittericon.png" alt="Tweet about Arabic Transcriber!" style="width:auto;height:20px;"></a>
+            </div>
+            <div><p><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/">Background image by by Andreea Ch, on Pexels</a></p></div>
+
+        </div></footer> 
 </html>

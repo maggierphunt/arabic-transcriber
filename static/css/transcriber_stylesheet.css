@@ -1,5 +1,5 @@
 body {
-    background-image: url("../images/Sahara.jpg"); no-repeat center center fixed;
+    background-image: url("../images/pexels-andreea-ch-1047284.jpg"); no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -18,13 +18,47 @@ p {
 
 /*content boxes*/
 
+footer {
+    margin-bottom: 50px;
+    align-self: center;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 140px);
+}
+
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    
+    
+}
+
 .content_box {
     background-color: white;
-    opacity: 50%;
+    opacity: 85%;
+    border-radius: 25px;
+    position: fixed;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .text_box {
     border: black;
+    font-family: 'Markazi Text', serif;
+}
+
+.form-check-label {
     font-family: 'Markazi Text', serif;
 }
 
