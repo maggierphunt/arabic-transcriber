@@ -1,8 +1,12 @@
+from encodings.utf_8 import encode
+from pickle import OBJ
 from pydoc import TextDoc
 from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request, Response
 import arabic_reshaper
 from bidi.algorithm import get_display
+import base64
+import io
 
 app = Flask("transcription_app") #making an app
 
@@ -10,14 +14,15 @@ app = Flask("transcription_app") #making an app
 def landing_page():
     return render_template("transcriber_page.html")
 
-@app.route("/transcribed", methods=['POST'])
+@app.route("/transcribed", methods=["POST", "GET"]) 
 def transcribe():
-    
-    form_data = request.form[inputText]
-    string_of_text = tostring(form_data)
-    TextToTranscribe = list(string_of_text)
 
-    #mapping
+    inputTextFromForm = str(request.form['inputText'])
+    print(inputTextFromForm)
+    TextToTranscribe = list(inputTextFromForm)
+    print(TextToTranscribe)
+
+    #mapping - Eng to Arabic
     characters = {
     " " : " ",
     "ʾ" : "ء",
@@ -30,8 +35,8 @@ def transcribe():
     "j" : "ج",
     "H" : "ح",
     "ḥ" : "ح",
-    "ch": "خ",
-    "kh": "خ",
+    "ch": "خ", #needs rule
+    "kh": "خ", #needs rule
     "d" : "د",
     "dh" : "ذ",
     "r" : "ر",
@@ -65,32 +70,49 @@ def transcribe():
     "o" : "ُ" , #needs rule
     "uu" : "و" , #needs rule
     "oo" : "و" , #needs rule
-    "i" : "ِ" , #needs rule
     "ii" : "ي" , #needs rule
+    "i" : "ِ" , #needs rule
     "iyy" : "ّي ِ", #needs rule
     "uww" : "ّو ُ", #needs rule
     "ee" : "ي" , #needs rule
-    "y": "ي" #needs rule
+    "y": "ي", #needs rule
+    #other letters which may come up
+    "e": "", #needs rule
+    "c": "", #needs rule
+    "x": "", #needs rule
+    "d": "", #needs rule
+    "g": "", #needs rule
+    "p": "", #needs rule
+    "v": "", #needs rule
+    "w": "", #needs rule
+    '\n':'\n',
+    '\r': '\r',
+    " " : " "
     }
 
-    transcriber_result = ' '.join(characters[character] for character in TextToTranscribe)
+    transcriber_result = ''.join(characters[character] for character in TextToTranscribe)
     reshaped_text = arabic_reshaper.reshape(transcriber_result)
     print(reshaped_text)
-    bidi_text = get_display(reshaped_text)
+    bidi_text = get_display(reshaped_text, upper_is_rtl=True)
     print(bidi_text)
-    transcribed_text = bidi_text
+    transcribed_text = str(bidi_text)
     print (transcribed_text)
-    return render_template("transcriber_page.html")
 
+    file = open('transliteration.txt', 'w')
+    with open('transliteration.txt', 'w') as file:
+        file.write(transcribed_text)
+    with open('transliteration.txt', 'r') as file:
+        file.seek(0)
+        bytesfile = (encode(str(file)))
+        print(bytesfile)
+        doc_url = base64.b64encode(dict(bytesfile))
+        print (doc_url)
+
+
+
+    return render_template("transcriber_page.html", transcribed_text=transcribed_text, doc_url=doc_url)
+
+#isn't printing on html the right way
 #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
 
 app.run(debug=True) #runs the app. the debug part - unlocks debugging feature.
-
-#e.g. bidi for ref
-#print("إسمي ماجي"); #translation: 'my name is Maggie' - prints backwards and disjointed
-#print ("يجام يمسإ"); #'my name is Maggie', typed bacwards so prints right way, still disjointed
-# #my_text = "إسمي ماجي";
-#reshaped_text = arabic_reshaper.reshape(my_text);    # correct its shape - links the letters
-#print(reshaped_text); #joined up forms of the letters, but still going in the wrong direction
-#bidi_text = get_display(reshaped_text);           # correct its direction - right to left
-#print(bidi_text);

@@ -4,6 +4,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
   
    }
 
@@ -31,8 +32,7 @@ footer {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    
-    
+    width: calc(100% - 140px);
 }
 
 .content_box {
@@ -64,12 +64,21 @@ footer {
 
 
 /*button code*/
-.download_button {
-    background-color: green;
+button a {
     color: white;
 }
 
-.download_button a{
-    text-decoration: none;
+button a:hover {
     color: white;
+    text-decoration: none;
+}
+
+button a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+button a:active {
+    color: white;
+    text-decoration: none;
 }

@@ -11,6 +11,7 @@
        
         <!-- scripts-->
         <script src="../static/js/transcriber_script.js"></script>
+        
     
     <!-- meta -->
         <meta name="author" content="Maggie Hunt">
@@ -29,9 +30,9 @@
             </ul>
         </p>
 
-        <form id=transcriberForm method="post" action="/transcribed" onsubmit="transcribe(inputText)">
+        <form id=transcriberForm action="/transcribed"  method="post" onsubmit="return transcribe()" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="TextToTranscribe">What would you like to transcribe?</label>
+                <label for="inputText">What would you like to transcribe?</label>
                 <textarea class="form-control" id="inputText" name="inputText" rows="3" placeholder="Enter text here" required></textarea>
               </div>
             <div class="form-group form-check">
@@ -40,12 +41,12 @@
             </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        {% if TextToTranscribe %}
+        <br>
+        {% if transcribed_text %}
  <div><h2>See your results below:</h2><div class="text_box"></div>
         <p>{{transcribed_text}}</p>
         <form methods="post" action="/">
-            <button type="submit" class="download_button"><a href="data:text/txt" download="Transcription">Download transcription
-                </a></button></form></div>
+            <button type="submit" class="btn btn-primary"> <a href="data:text/txt;base64, {{doc_url}}" download="Transcription">Download transcription</a></button></form></div>
             </div>
             {% else %}
             <p>Your transcription will appear here.</p>
