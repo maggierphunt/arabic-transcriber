@@ -56,7 +56,7 @@ def transliterate():
     "m" : "م",
     "n" : "ن",
     "h" : "ه",
-    "w": "و",
+    "w": "و", #needs rule
     "'" : "", #needs rule
     "a" : "َ" , #needs rule
     "a" : "ة", #needs rule
