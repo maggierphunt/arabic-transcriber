@@ -24,7 +24,7 @@ footer {
     align-self: center;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 140px);
+    width: calc(100% - 100px);
 }
 
 .footer-flex {
@@ -32,7 +32,7 @@ footer {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    width: calc(100% - 140px);
+    width: calc(100% - 50px);
 }
 
 .content_box {
@@ -81,4 +81,27 @@ button a:visited {
 button a:active {
     color: white;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .credit-text {
+        font-size: 8px;
+    }
+
+    .hide-on-mob {
+        display: none;
+    }
+
+    .footer-layer {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-flex {
+        flex-direction: column;
+    }
+
+    .footer-flex-2 {
+        flex-direction: row;
+    }
 }
