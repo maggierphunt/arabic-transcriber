@@ -7,6 +7,7 @@ import arabic_reshaper
 from bidi.algorithm import get_display
 import base64
 import io
+import os
 
 app = Flask("Transliterator_app") #making an app
 
@@ -86,12 +87,18 @@ def transliterate():
     "p": "", #needs rule
     "v": "", #needs rule
     "w": "", #needs rule
-    '\n':'\n',
-    '\r': '\r',
-    " " : " "
+    "?" : "؟"
     }
-
-    transliterator_result = ''.join(characters[character] for character in TextTotransliterate)
+    #need to look for combinations of letters
+    # transliterator_result = ''.join(characters[character] for character in TextTotransliterate)
+    transliterator_result = ""
+    for character in TextTotransliterate:
+        if character in characters:
+            X = characters[character]
+        else:
+            X = character
+        transliterator_result = transliterator_result+X
+        
     transliterator_text = arabic_reshaper.reshape(transliterator_result)
     print(transliterator_text)
     #necessary for future text and downloads but not html display

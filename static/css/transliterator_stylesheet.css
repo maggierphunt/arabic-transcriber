@@ -17,6 +17,10 @@ h2 {
 p {
     font-family: 'Markazi Text', serif;}
 
+    .disclaimer {
+        font-size: smaller;
+    }
+
 /*content boxes*/
 
 footer {
@@ -83,7 +87,26 @@ button a:active {
     text-decoration: none;
 }
 
+.social-logo {
+    width:auto;
+    height:21px;
+}
+
 @media only screen and (max-width: 600px) {
+
+    h1 {
+        font-size: medium;
+    }
+    h2 {
+        font-size: small;
+    }
+    p {
+        font-size: smaller;
+    }
+
+    .disclaimer {
+        font-size: smallest;
+    }
 
     .credit-text {
         font-size: 8px;
@@ -104,4 +127,18 @@ button a:active {
     .footer-flex-2 {
         flex-direction: row;
     }
+
+    .content_box {
+        padding: 10px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .social-logo {
+        width:auto;
+        height:16px;
+    }
+    
 }
