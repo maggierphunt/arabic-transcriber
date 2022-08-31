@@ -8,19 +8,19 @@ from bidi.algorithm import get_display
 import base64
 import io
 
-app = Flask("transcription_app") #making an app
+app = Flask("Transliterator_app") #making an app
 
 @app.route("/")    #@ makes it a 'decorator'. line tells peple where to look inside flask framework. Decorators always followed by function.
 def landing_page():
-    return render_template("transcriber_page.html")
+    return render_template("index.html")
 
-@app.route("/transcribed", methods=["POST", "GET"]) 
-def transcribe():
+@app.route("/transliterator", methods=["POST", "GET"]) 
+def transliterate():
 
     inputTextFromForm = str(request.form['inputText'])
     print(inputTextFromForm)
-    TextToTranscribe = list(inputTextFromForm)
-    print(TextToTranscribe)
+    TextTotransliterate = list(inputTextFromForm)
+    print(TextTotransliterate)
 
     #mapping - Eng to Arabic
     characters = {
@@ -61,8 +61,9 @@ def transcribe():
     "a" : "َ" , #needs rule
     "a" : "ة", #needs rule
     "at" : "ة", #needs rule
-    "ā" : "ا", #needs rule
+    "A" : "ا", #needs rule
     "ā" : "ی", #needs rule
+    "ā" : "ا", #needs rule
     "ū" : "و" , #needs rule
     "ī" : "ي" , #needs rule
     "aa" : "ا" , #needs rule
@@ -90,17 +91,16 @@ def transcribe():
     " " : " "
     }
 
-    transcriber_result = ''.join(characters[character] for character in TextToTranscribe)
-    reshaped_text = arabic_reshaper.reshape(transcriber_result)
-    print(reshaped_text)
-    bidi_text = get_display(reshaped_text, upper_is_rtl=True)
-    print(bidi_text)
-    transcribed_text = str(bidi_text)
-    print (transcribed_text)
+    transliterator_result = ''.join(characters[character] for character in TextTotransliterate)
+    transliterator_text = arabic_reshaper.reshape(transliterator_result)
+    print(transliterator_text)
+    #necessary for future text and downloads but not html display
+    bidi_text = get_display(transliterator_text, upper_is_rtl=True)
+    print (bidi_text)
 
 
 
-    return render_template("transcriber_page.html", transcribed_text=transcribed_text)
+    return render_template("index.html", transliterator_text=transliterator_text)
 
 #isn't printing on html the right way
 #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf

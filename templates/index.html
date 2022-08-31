@@ -2,15 +2,15 @@
 <html>
     <head>
     <!-- title: CHANGE ME -->
-        <title>Arabic Transcriber</title>
+        <title>Arabic Transliterator</title>
         <link rel="icon" href="../static/images/meem.png">
     <!-- stylesheets -->
-        <link rel="stylesheet" href="../static/css/transcriber_stylesheet.css">
+        <link rel="stylesheet" href="../static/css/transliterator_stylesheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
        
         <!-- scripts-->
-        <script src="../static/js/transcriber_script.js"></script>
+        <script src="../static/js/transliterator_script.js"></script>
         
     
     <!-- meta -->
@@ -24,29 +24,29 @@
     </head>
     <body>
         <div class="content_box">
-        <h1>Welcome to the Arabic Transcriber</h1>
-        <p>Please enter your text to transcribe. This transcriber works with MSA pronunciations. 
+        <h1>Welcome to the Arabic Transliterator</h1>
+        <p>Please enter your text to transliterate. This transliterator works with MSA pronunciations. 
             <br>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide on Western transcription.
             </ul>
         </p>
 
-        <form id=transcriberForm action="/transcribed"  method="post" onsubmit="return transcribe()" enctype="multipart/form-data">
+        <form id=transliteratorForm action="/transliterator"  method="post" onsubmit="return transliterate()" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="inputText">What would you like to transcribe?</label>
+                <label for="inputText">What would you like to transliterate?</label>
                 <textarea class="form-control" id="inputText" name="inputText" rows="3" placeholder="Enter text here" required></textarea>
               </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                <label class="form-check-label" for="exampleCheck1">I understand that this website is for academic purposes only, and I will independently verify that my transcription is accurate before using it for personal, professional or political purposes.</label>
+                <label class="form-check-label" for="exampleCheck1">I understand that this website is for academic purposes only, and I will independently verify that my transliteration is accurate before using it for personal, professional or political purposes.</label>
             </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <br>
-        {% if transcribed_text %}
+        {% if transliterator_text %}
  <div><h2>See your results below:</h2><div class="text_box"></div>
-        <p>{{transcribed_text}}</p>
+        <p><span dir="rtl">{{transliterator_text}}</span></p>
             {% else %}
-            <p>Your transcription will appear here.</p>
+            <p>Your transliteration will appear here.</p>
             {% endif %}
         <hr>
    </body>
@@ -56,7 +56,7 @@
             <div>
                 <a href="https://www.linkedin.com/in/maggierphunt/" title="Connect on Linkedin" target=blank><img src="../static/images/linkedinicon.png" alt="Reach out on Linkedin" style="width:auto;height:18px;"></a>
                 <a href="https://github.com/maggierphunt/arabic-transcriber" title="View on GitHub" target=blank><img src="../static/images/githubicon.png" alt="See the code!" style="width:auto;height:21px;"></a>
-                <a href="https://twitter.com/intent/tweet?text=Have%20you%20used%20the%20arabic%20Transcriber%20yet?%20Go%20to%20cadence-313811.appspot.com" title="Tweet about Arabic Transcriber" target=blank><img src="../static/images/twittericon.png" alt="Tweet about Arabic Transcriber!" style="width:auto;height:20px;"></a>
+                <a href="https://twitter.com/intent/tweet?text=Have%20you%20used%20the%20arabic%20Transliterator%20yet?%20Go%20to%20cadence-313811.appspot.com" title="Tweet about Arabic Transcriber" target=blank><img src="../static/images/twittericon.png" alt="Tweet about Arabic Transcriber!" style="width:auto;height:20px;"></a>
             </div>
             <div><p><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/">Background image by by Andreea Ch, on Pexels</a></p></div>
 
