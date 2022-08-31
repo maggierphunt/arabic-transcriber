@@ -105,4 +105,5 @@ def transliterate():
 #isn't printing on html the right way
 #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
 
-app.run(debug=True) #runs the app. the debug part - unlocks debugging feature.
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
