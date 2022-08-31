@@ -45,9 +45,6 @@
         {% if transcribed_text %}
  <div><h2>See your results below:</h2><div class="text_box"></div>
         <p>{{transcribed_text}}</p>
-        <form methods="post" action="/">
-            <button type="submit" class="btn btn-primary"> <a href="data:text/txt;base64, {{doc_url}}" download="Transcription">Download transcription</a></button></form></div>
-            </div>
             {% else %}
             <p>Your transcription will appear here.</p>
             {% endif %}

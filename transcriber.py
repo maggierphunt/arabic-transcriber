@@ -98,19 +98,9 @@ def transcribe():
     transcribed_text = str(bidi_text)
     print (transcribed_text)
 
-    file = open('transliteration.txt', 'w')
-    with open('transliteration.txt', 'w') as file:
-        file.write(transcribed_text)
-    with open('transliteration.txt', 'r') as file:
-        file.seek(0)
-        bytesfile = (encode(str(file)))
-        print(bytesfile)
-        doc_url = base64.b64encode(dict(bytesfile))
-        print (doc_url)
 
 
-
-    return render_template("transcriber_page.html", transcribed_text=transcribed_text, doc_url=doc_url)
+    return render_template("transcriber_page.html", transcribed_text=transcribed_text)
 
 #isn't printing on html the right way
 #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
