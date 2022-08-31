@@ -23,7 +23,7 @@ def transliterate():
     inputTextFromForm = str(request.form['inputText'])
     print("input = "+ inputTextFromForm)
 
-    lower_inputTextFromForm = inputTextFromForm.lower()
+    lower_inputTextFromForm = inputTextFromForm.lower()+" "
     print("lower case = " + lower_inputTextFromForm)
 
 #     replacement_dict_eng_to_ar = {
