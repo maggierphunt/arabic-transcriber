@@ -217,7 +217,7 @@ def transliterate():
 
 
 
-    return render_template("index.html", transliterator_text=transliterator_text)
+    return render_template("index.html", inputTextFromForm=inputTextFromForm, transliterator_text=transliterator_text)
 
 
 
