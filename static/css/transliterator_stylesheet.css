@@ -64,6 +64,7 @@ margin:0 auto;
 /*content boxes*/
 footer {
     margin-bottom: 50px;
+    margin-left: 70px;
     align-self: center;
     position: fixed;
     bottom: 0;
