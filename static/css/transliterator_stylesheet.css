@@ -16,20 +16,28 @@ h1 {
     font-family: 'Markazi Text', serif;
     padding: 10px;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 h2 {
     font-family: 'Markazi Text', serif;
     padding: 20px;
 }
-p {
+
+h3 {
+    font-family: 'Markazi Text', serif;
+    padding: 10px;
+}
+
+p, ul {
     font-family: 'Markazi Text', serif;
     font-size: medium;
    }
-
-   .disclaimer {
+    
+.disclaimer {
         font-size: smallest;
     }
+
 
 /*form*/
 .submit-button {
@@ -61,28 +69,16 @@ font-size: 20px;
     text-align: left;
     }
 
-.results {
-    text-align: auto;
+
+.form-check-label {
+    font-family: 'Markazi Text', serif;
+}
+.credit-text {
+    font-size: 12px;
 }
 
 
 /*content boxes*/
-footer {
-    margin-bottom: 50px;
-    align-self: center;
-    align-items: baseline;
-    position: fixed;
-    bottom: 0;
-    width: calc(100% - 200px);
-    height: 80px;
-}
-
-.footer-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-}
 
 .content_box {
     background-color: white;
@@ -105,10 +101,12 @@ footer {
     padding-bottom: 50px;
     overflow: scroll;
     height: calc(90% - 100px);
+    text-align: center;
 }
 
 .center {
     text-align: center;
+    align-items: center;
 }
 .display {
     text-align: auto;
@@ -118,19 +116,59 @@ footer {
     padding-right: 50px;
 }
 
-.form-check-label {
-    font-family: 'Markazi Text', serif;
+
+.results {
+    text-align: auto;
 }
 
-.credit-text {
-    font-size: 12px;
+
+
+/* footer */
+footer {
+    margin-bottom: 50px;
+    align-self: center;
+    align-items: baseline;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 200px);
+    height: 80px;
 }
 
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+
+/* loader */
+
+.loader-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+    padding: 100px;
+}
+.loader {
+    border: 16px solid white;
+    border-top: 16px solid darkgreen;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 /*button code*/
 button a {
     color: white;
-    
 }
 
 button a:hover {
@@ -163,7 +201,7 @@ button a:active {
         font-size: small;
         padding: 10px;
     }
-    p {
+    p, ul {
         font-size: smallest;
     }
 

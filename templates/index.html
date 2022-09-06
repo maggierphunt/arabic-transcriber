@@ -22,29 +22,35 @@
     </head>
     <body>
         <div class="content_box">
-
         <h1>Arabic Transliterator</h1>
-                   <div class="main_content"> <p>Welcome to the Arabic Transliterator! For use into and out of Arabic. Please note, this transliterator does not currently add sukūn markings, and will not assume any implied vowel sounds.
+                   <div class="main_content">
+                    <p>Welcome to the Arabic Transliterator!
+                    <br>You can use this to transliterate into and out of Arabic.
             </ul>
-        </p>
+        </p> 
+        <div id="loader">
+        <div class="loader-flex">
+        <div class="loader"></div> </div>
+   <div><p class="disclaimer">Loading...</p></div></div>
 <div id="form-section">
         <form id=transliteratorForm action="/transliterator"  method="post" onsubmit="return transliterate()" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputText"><p>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide for Western transcription, especially if you need to copy and paste special characters.</p></label>
                 <textarea class="text-box" id="inputText" name="inputText" rows="3" placeholder="Enter text here" required></textarea>
               </div>
+              <p>Please note, this transliterator does not currently add sukūn markings, rectify double letters when transliterating into Arabic with a shaddah,
+                process tanween fatḥa/ḍamma/kasra, handle Qur'anic annotation signs, or assume any implied vowel sounds.</p>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                 <label class="form-check-label disclaimer" for="exampleCheck1">I understand that this website is for academic purposes only, and I will independently verify that my transliteration is accurate before using it for personal, professional or political purposes.</label>
             </div>
                 <button type="submit" class="submit-button" id="form-button">Submit</button>
         </form></div>
-        <br>
         {% if transliterator_text %}
- <div class="display"><p class="center">Original input:</p>
+ <div class="display"><h3 class="center">Original input:</h3>
         {% if input_lang_ar == true %} <span style="text-align: right;"> {% else %} <span style="text-align: left;"> {% endif %}
  <p>{{inputTextFromForm}}</p></span>
-        <p class="center">Transliteration:</p> 
+        <h3 class="center">Transliteration:</h3> 
         {% if input_lang_ar == true %} <span style="text-align: left;"> {% else %} <span style="text-align: right;"> {% endif %}
         <p class="results">{{transliterator_text}}</p></span>
         <button type="submit" class="submit-button" id="reset" action="/">Reset</button>

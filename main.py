@@ -29,32 +29,6 @@ def transliterate():
     lower_inputTextFromForm = inputTextFromForm.lower()+" "
     print("lower case = " + lower_inputTextFromForm)
 
-#     replacement_dict_eng_to_ar = {
-#   "th" : "V",
-#     "gh" : "G",
-#     "kh" : "K",
-#     "dh" : "D",
-#     "sh" : "S",
-#     "iyy" : "I",
-#     "uww" : "U",
-#     " al" : " āl",
-#     " al-" : " āl",
-#     "ā " : "A ",
-#     "at " : "T ",
-#     "a " : "T ",
-#     "x" : "ks",
-#     "ya" : "īa",
-#     "wa" : "ūa",
-#     "yi" : "īi",
-#     "wi" : "ūi",
-#     "yu" : "īu",
-#     "wu" : "ūu"
-#     }
-    
-#     for i, j in replacement_dict_eng_to_ar.iteritems():
-#         TextTotransliterate_String =  lower_inputTextFromForm.replace(i, j)
-#     return TextTotransliterate_String
- 
     #replacing character combinations on official transliteration to enable accurate transcription
     lower_inputTextFromForm1 = lower_inputTextFromForm.replace("th", "V")
     lower_inputTextFromForm2 = lower_inputTextFromForm1.replace("gh", "G")
@@ -92,7 +66,7 @@ def transliterate():
     "b" :"ب",
     "t" : "ت",
     "V" : "ث",
-    "T" : "ط",
+    "ṭ" : "ط",
     "ẓ" : "ظ",
     "j" : "ج",
     "ḥ" : "ح",
@@ -129,7 +103,7 @@ def transliterate():
     "ب" : "b" ,
     "ت" : "t" ,
     "ث" : "V" ,
-    "ط" : "T" ,
+    "ط" : "ṭ" ,
     "ظ" : "ẓ" ,
     "ج" : "j" ,
     "ح" : "ḥ" ,
@@ -171,8 +145,8 @@ def transliterate():
     "إ" : "Q",
     "ئ" : "Z",
     "،" : ",",
-    "," : "،"
-    }
+    "," : "،",
+    "ﹼ":""}
 
     #todo add numbers
     #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
@@ -234,17 +208,29 @@ def transliterate():
     transliterator_result17 = transliterator_result16.replace("aā", "ā")
     transliterator_result18 = transliterator_result17.replace("iī", "ī")
     transliterator_result19 = transliterator_result18.replace("uū", "ū")
-    transliterator_result20 = transliterator_result19.replace("Q", "ʾi")
-    transliterator_result21 = transliterator_result20.replace("Z","ʾā")
+    transliterator_result20 = transliterator_result19.replace("Q", "'i")
+    transliterator_result21 = transliterator_result20.replace("Z","'ā")
     transliterator_result22 = transliterator_result21.replace(" al", " al-")
-    transliterator_result23 = transliterator_result22.replace("W", "ʾu")
-    transliterator_result24 = transliterator_result23.replace("X", "ʾa")
-    transliterator_result25 = transliterator_result24.replace(" ū", "w-")
+    transliterator_result23 = transliterator_result22.replace("W", "'u")
+    transliterator_result24 = transliterator_result23.replace("X", "'a")
+    transliterator_result25 = transliterator_result24.replace(" ū", " w-")
     transliterator_result26 = transliterator_result25.replace(" fal-", " f'al-")
    
 
-    #linking cursive up
-    transliterator_text = arabic_reshaper.reshape(transliterator_result26)
+    transliterator_reshaped = arabic_reshaper.reshape(transliterator_result26)
+
+    if input_lang_ar == True:
+        transliterator_text_qmark = '? '.join(x.capitalize() for x in transliterator_reshaped.split('? '))
+        transliterator_text_emark = '! '.join(x.capitalize() for x in transliterator_text_qmark.split('! '))
+        transliterator_text = '. '.join(x.capitalize() for x in  transliterator_text_emark.split('. '))
+
+    else:
+        #linking cursive up
+        print("ok")
+        transliterator_text = transliterator_reshaped
+    
+    #capitalisation is not consistent with tge arabic reshaper working, which is needed to process special characters in transcription
+    
 
     print(transliterator_text)
 
@@ -258,6 +244,8 @@ def transliterate():
     # else:
     #     input_direction="<span dir=\"ltr\">"
     #     output_direction="<span dir=\"rtl\">"
+
+   
     
 
     print(input_lang_ar)
