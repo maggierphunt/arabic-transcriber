@@ -55,9 +55,10 @@ def transliterate():
     lower_inputTextFromForm23 = lower_inputTextFromForm22.replace("ﺃ", "ءا")
     lower_inputTextFromForm24 = lower_inputTextFromForm23.replace("ﺇ", "ءي")
     lower_inputTextFromForm25 = lower_inputTextFromForm24.replace("ؤ", "ءو")
-    lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ")
+    lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ"),
+    lower_inputTextFromForm27 = lower_inputTextFromForm26.replace("w", "ū")
 
-    TextTotransliterate = list(lower_inputTextFromForm22)
+    TextTotransliterate = list(lower_inputTextFromForm27)
     print("to transliterate "+ str(TextTotransliterate))
 
     #mapping
