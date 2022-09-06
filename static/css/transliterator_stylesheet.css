@@ -21,10 +21,10 @@ h2 {
 }
 p {
     font-family: 'Markazi Text', serif;
-    font-size: large;
-    padding: 10px;}
+    font-size: medium;
+   }
 
-    .disclaimer {
+   .disclaimer {
         font-size: smallest;
     }
 
@@ -161,8 +161,7 @@ button a:active {
         padding: 10px;
     }
     p {
-        font-size: smaller;
-        padding: 5px;
+        font-size: smallest;
     }
 
     .disclaimer {

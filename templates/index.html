@@ -24,15 +24,13 @@
         <div class="content_box">
 
         <h1>Arabic Transliterator</h1>
-                   <div class="main_content"> <p>This algorithm does not currently add shedda or sukūn markings, and will not assume any implied vowel sounds.
-            <br>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide for Western transcription, especially if you need to copy and paste special characters.
+                   <div class="main_content"> <p>This transliterator does not currently add sukūn markings, and will not assume any implied vowel sounds.
             </ul>
         </p>
 <div id="form-section">
         <form id=transliteratorForm action="/transliterator"  method="post" onsubmit="return transliterate()" enctype="multipart/form-data">
             <div class="form-group">
-                
-                <label for="inputText"><h2>What would you like to transliterate?</h2></label>
+                <label for="inputText"><p>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide for Western transcription, especially if you need to copy and paste special characters.</p></label>
                 <textarea class="text-box" id="inputText" name="inputText" rows="3" placeholder="Enter text here" required></textarea>
               </div>
             <div class="form-group form-check">
