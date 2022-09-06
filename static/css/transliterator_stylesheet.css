@@ -10,7 +10,8 @@ body {
 
 h1 {
     font-family: 'Markazi Text', serif;
-    padding: 40px;
+    padding: 10px;
+    padding-bottom: 30px;
 }
 
 h2 {
@@ -64,11 +65,12 @@ margin:0 auto;
 /*content boxes*/
 footer {
     margin-bottom: 50px;
-    margin-left: 70px;
     align-self: center;
+    align-items: baseline;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 100px);
+    width: 80%;
+    height: 100px;
 }
 
 .footer-flex {
@@ -76,7 +78,7 @@ footer {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    width: calc(100% - 50px);
+
 }
 
 .content_box {
@@ -95,8 +97,14 @@ footer {
     margin-left: 50px;
     margin-right: 50px;
     text-align: center;
+}
+
+.main_content {
+    padding-bottom: 50px;
+    height: calc(100% - 70px);
     overflow: scroll;
 }
+
 
 .center {
     text-align: center;
@@ -145,17 +153,21 @@ button a:active {
 
     h1 {
         font-size: medium;
+        padding: 20px;
     }
     h2 {
         font-size: small;
+        padding: 10px;
     }
     p {
         font-size: smaller;
+        padding: 5px;
     }
 
     .disclaimer {
-        font-size: smallest;
+        font-size: 10px;
     }
+
 
     .credit-text {
         font-size: 8px;
@@ -190,4 +202,7 @@ button a:active {
         height:16px;
     }
     
+    .coffee-container {
+        width: 50px;
+    }
 }

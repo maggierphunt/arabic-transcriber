@@ -22,6 +22,7 @@
     </head>
     <body>
         <div class="content_box">
+            <div class="main_content">
         <h1>Welcome to the Arabic Transliterator</h1>
         <p>Please enter your text to transliterate. This transliterator works with MSA pronunciations. This algorithm does not currently add shedda or sukūn markings, and will not assume any implied vowel sounds.
             <br>Please see the <a href= "https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf" target="blank">IJMES Transliteration System</a> as a guide for Western transcription, especially if you need to copy and paste special characters.
@@ -47,12 +48,13 @@
         <p>Transliteration:</p>
         <p class="results"><span dir="rtl">{{transliterator_text}}</span></p>
         <button type="submit" class="submit-button" id="reset" action="/">Reset</button>
-            {% else %}
+    </div>  {% else %}
             {% endif %}
+
 </div>
         <footer>
             <div class="footer-flex">
-            <div class="footer-layer">
+            <div class="footer-layer coffee-container">
                 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maggierph" data-color="#ffffff" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00">
 
                 </script></div>
@@ -60,8 +62,9 @@
                 <a href="https://www.linkedin.com/in/maggierphunt/" title="Connect on Linkedin" target=blank><img src="../static/images/linkedinicon.png" alt="Reach out on Linkedin" class="social-logo"></a>
                 <a href="https://github.com/maggierphunt/arabic-transcriber" title="View on GitHub" target=blank><img src="../static/images/githubicon.png" alt="See the code!" class="social-logo"></a>
                 </div>
-            <div class="footer-layer"><p><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/" class="credit-text">Background<span class="hide-on-mob"> image</span> by Andreea Ch<span class="hide-on-mob">, via Pexels</span></a></p></div>
-        </div></footer> 
+            <div class="footer-layer"><p><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/" class="credit-text">Background<span class="hide-on-mob"> image</span> by Andreea Ch<span class="hide-on-mob">, via Pexels</span></a></p>
+            </div>
+        </div></footer> </div>
  </body>
         <!-- scripts-->
         <script src="../static/js/transliterator_script.js"></script>
