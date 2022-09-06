@@ -41,20 +41,20 @@ p, ul {
 
 /*form*/
 .submit-button {
-border-radius: 0%;
-border-width: 1px;
-background-color: transparent;
-color: black;
-border-color: gray;
-font-family: 'Markazi Text', serif;
-padding-left: 45px;
-padding-right: 45px;
-padding-top: 10px;
-padding-bottom: 10px;
-align-self: center;
-text-align: center ;
-margin:0 auto;
-font-size: 20px;
+    border-radius: 0%;
+    border-width: 1px;
+    background-color: transparent;
+    color: black;
+    border-color: gray;
+    font-family: 'Markazi Text', serif;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    text-align: center ;
+    margin:0 auto;
+    font-size: 20px;
 }
 
 .text-box {
@@ -171,9 +171,10 @@ button a {
     color: white;
 }
 
-button a:hover {
-    color: white;
+button:hover {
     text-decoration: none;
+    background-color: white;
+    opacity: 50%;
 }
 
 button a:visited {
