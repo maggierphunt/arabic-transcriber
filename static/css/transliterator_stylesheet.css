@@ -37,12 +37,13 @@ color: black;
 border-color: gray;
 font-family: 'Markazi Text', serif;
 padding-left: 45px;
-padding-right: 50px;
+padding-right: 45px;
 padding-top: 10px;
 padding-bottom: 10px;
 align-self: center;
 text-align: center ;
 margin:0 auto;
+font-size: 20px;
 }
 
 .text-box {
@@ -168,7 +169,6 @@ button a:active {
         font-size: 10px;
     }
 
-
     .credit-text {
         font-size: 8px;
     }
@@ -180,11 +180,17 @@ button a:active {
   footer {
     margin-bottom: 0px;
     width: calc(100% - 75px);
+    height: 80px;
     }
   
+    .main_content {
+        padding-bottom: 30px;
+        overflow: scroll;
+        height: calc(90% - 80px);
+    }
     
     .content_box {
-        padding: 15px;
+        padding: 20px;
         margin-top: 15px;
         margin-bottom: 15px;
         margin-left: 15px;
@@ -196,7 +202,14 @@ button a:active {
         height:16px;
     }
     
-    .coffee-container {
-        width: 50px;
-    }
+    .submit-button {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        align-self: center;
+        text-align: center ;
+        margin:0 auto;
+        font-size: 14px;
+        }
 }
