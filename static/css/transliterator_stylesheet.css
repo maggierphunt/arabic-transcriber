@@ -218,16 +218,16 @@ button a:active {
         display: none;
     }
 
-  footer {
-    margin-bottom: 0px;
-    width: calc(100% - 75px);
-    height: 80px;
-    }
+    footer {
+        margin-bottom: 0px;
+        width: calc(100% - 75px);
+        height: 80px;
+        }
   
     .main_content {
         padding-bottom: 30px;
         overflow: scroll;
-        height: calc(90% - 80px);
+        height: calc(80% - 80px);
     }
     
     .content_box {
