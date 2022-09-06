@@ -1,11 +1,14 @@
 body {
-    background-image: url("../images/pexels-andreea-ch-1047284.jpg"); no-repeat center center fixed;
+    background-image: url("../images/pexels-andreea-ch-1047284.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
   background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
   
    }
 
@@ -72,7 +75,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: calc(100% - 200px);
-    height: 100px;
+    height: 80px;
 }
 
 .footer-flex {
