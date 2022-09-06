@@ -195,11 +195,11 @@ button a:active {
 @media only screen and (max-width: 600px) {
 
     h1 {
-        font-size: medium;
+        font-size: small;
         padding: 20px;
     }
     h2 {
-        font-size: small;
+        font-size: smaller;
         padding: 10px;
     }
     p, ul {
