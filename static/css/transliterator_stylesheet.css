@@ -5,6 +5,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+  background-attachment: fixed;
   
    }
 
@@ -69,7 +70,7 @@ footer {
     align-items: baseline;
     position: fixed;
     bottom: 0;
-    width: 80%;
+    width: calc(100% - 200px);
     height: 100px;
 }
 
@@ -78,7 +79,6 @@ footer {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-
 }
 
 .content_box {
@@ -101,8 +101,8 @@ footer {
 
 .main_content {
     padding-bottom: 50px;
-    height: calc(100% - 70px);
     overflow: scroll;
+    height: calc(90% - 100px);
 }
 
 
@@ -177,24 +177,18 @@ button a:active {
         display: none;
     }
 
-    .footer-layer {
-        width: 100%;
-        text-align: center;
+  footer {
+    margin-bottom: 0px;
+    width: calc(100% - 75px);
     }
-    .footer-flex {
-        flex-direction: column;
-    }
-
-    .footer-flex-2 {
-        flex-direction: row;
-    }
-
+  
+    
     .content_box {
-        padding: 10px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        margin-left: 25px;
-        margin-right: 25px;
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
     .social-logo {
