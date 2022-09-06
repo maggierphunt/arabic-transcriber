@@ -13,9 +13,9 @@ import io
 import os
 # from bidict import bidict
 
-app = Flask("Transliterator_app") #making an app
+app = Flask("Transliterator_app")
 
-@app.route("/")    #@ makes it a 'decorator'. line tells peple where to look inside flask framework. Decorators always followed by function.
+@app.route("/")    
 def landing_page():
     return render_template("index.html")
 
@@ -55,7 +55,7 @@ def transliterate():
     lower_inputTextFromForm23 = lower_inputTextFromForm22.replace("ﺃ", "ءا")
     lower_inputTextFromForm24 = lower_inputTextFromForm23.replace("ﺇ", "ءي")
     lower_inputTextFromForm25 = lower_inputTextFromForm24.replace("ؤ", "ءو")
-    lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ"),
+    lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ")
     lower_inputTextFromForm27 = lower_inputTextFromForm26.replace("w", "ū")
 
     TextTotransliterate = list(lower_inputTextFromForm27)
