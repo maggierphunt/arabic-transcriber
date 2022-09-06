@@ -1,7 +1,9 @@
 from curses import keyname
 from encodings.utf_8 import encode
-from pickle import OBJ
+from importlib.machinery import all_suffixes
+from pickle import FALSE, OBJ, TRUE
 from pydoc import TextDoc
+from wave import Wave_write
 from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request, Response
 import arabic_reshaper
@@ -20,6 +22,7 @@ def landing_page():
 @app.route("/transliterator", methods=["POST", "GET"]) 
 def transliterate():
 
+    unhandled_letters = []
     inputTextFromForm = str(request.form['inputText'])
     print("input = "+ inputTextFromForm)
 
@@ -70,12 +73,18 @@ def transliterate():
     lower_inputTextFromForm15 = lower_inputTextFromForm14.replace("wi", "ūi")
     lower_inputTextFromForm16 = lower_inputTextFromForm15.replace("yu", "īu")
     lower_inputTextFromForm17 = lower_inputTextFromForm16.replace("wu", "ūu")
-    lower_inputTextFromForm18 = lower_inputTextFromForm17.replace(" al", " āl")
+    lower_inputTextFromForm18 = lower_inputTextFromForm17.replace("ʾa", "X")
+    lower_inputTextFromForm19 = lower_inputTextFromForm18.replace("ʾu", "W")
+    lower_inputTextFromForm20 = lower_inputTextFromForm19.replace("ʾi", "Q")
+    lower_inputTextFromForm21 = lower_inputTextFromForm20.replace("ʾā", "Z")
+    lower_inputTextFromForm22 = lower_inputTextFromForm21.replace(" al", " āl")
+    lower_inputTextFromForm23 = lower_inputTextFromForm22.replace("ﺃ", "ءا")
+    lower_inputTextFromForm24 = lower_inputTextFromForm23.replace("ﺇ", "ءي")
+    lower_inputTextFromForm25 = lower_inputTextFromForm24.replace("ؤ", "ءو")
+    lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ")
 
-    TextTotransliterate = list(lower_inputTextFromForm18)
+    TextTotransliterate = list(lower_inputTextFromForm22)
     print("to transliterate "+ str(TextTotransliterate))
-        
-
 
     #mapping
     characters = {
@@ -110,7 +119,7 @@ def transliterate():
     "a" : "َ" ,
     "T" : "ة",
     "ā" : "ا", 
-    "A" : "ی", 
+    "A" : "ى", 
     "ū" : "و" , 
     "ī" : "ي" ,
     "u" : "ُ" , 
@@ -147,29 +156,34 @@ def transliterate():
     "َ"  : "a" ,
     "ة" : "T" ,
     "ا"  : "ā" ,
-    "ی"  : "A" ,
+   "ى" : "A" ,
     "و" : "ū" ,
     "ي"  : "ī" ,
     "ُ"  : "u" ,
     "ِ" : "i" ,
     "؟" : "?",
-    "ﺃ" : "ʾa",
-    "ؤ" : "ʾu",
-    "ﺇ" : "ʾi",
-    "ﻯ" : "A",
-    "ﺉ" : "ʾā "
+    "X" : "أ",
+    "W" : "ؤ",
+    "Q" : "إ",
+    "Z" : "ئ",
+    "أ" : "X",
+    "ؤ" : "W",
+    "إ" : "Q",
+    "ئ" : "Z",
+    "،" : ",",
+    "," : "،"
     }
 
     #todo add numbers
     #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
 
     #two-way dictionary
-    # bidict_lookup_arabic_characters=bidict(characters)
-    # bidict_lookup_western_characters = bidict_lookup_arabic_characters.inverse
-    # print(bidict_lookup_western_characters)
-
-    # transliterator_result = ''.join(characters[character] for character in TextTotransliterate)
+        # bidict_lookup_arabic_characters=bidict(characters)
+        # bidict_lookup_western_characters = bidict_lookup_arabic_characters.inverse
+        # print(bidict_lookup_western_characters)
+        # transliterator_result = ''.join(characters[character] for character in TextTotransliterate)
     transliterator_result = ""
+    input_lang_ar = False
     
     for character in TextTotransliterate:
         ar_char = arabic_reshaper.reshape(character)
@@ -177,6 +191,16 @@ def transliterate():
         if character in characters:
             print ("lookup")
             X = characters[character]
+            if ('\u0600' <= character <= '\u06FF' or
+                '\u0750' <= character <= '\u077F' or
+                '\u08A0' <= character <= '\u08FF' or
+                '\uFB50' <= character <= '\uFDFF' or
+                '\uFE70' <= character <= '\uFEFF' or
+                '\U00010E60' <= character <= '\U00010E7F' or
+                '\U0001EE00' <= character <= '\U0001EEFF'):
+                input_lang_ar =  True
+            else:
+                print("not ar")
         # elif ar_char in bidict_lookup_arabic_characters.inverse:
         #     print(character)
         #     print ("lookup western")
@@ -186,6 +210,7 @@ def transliterate():
         else:
             print ("no lookup")
             X = character
+            unhandled_letters.append(X)
         transliterator_result = transliterator_result+X
     
     
@@ -205,14 +230,21 @@ def transliterate():
     transliterator_result13 = transliterator_result12.replace("ūi", "wi")
     transliterator_result14 = transliterator_result13.replace("īu", "yu")
     transliterator_result15 = transliterator_result14.replace("ūu", "wu")
-    transliterator_result16 = transliterator_result15.replace(" āl" , " al-")
+    transliterator_result16 = transliterator_result15.replace(" āl", " al")
     transliterator_result17 = transliterator_result16.replace("aā", "ā")
     transliterator_result18 = transliterator_result17.replace("iī", "ī")
     transliterator_result19 = transliterator_result18.replace("uū", "ū")
-
+    transliterator_result20 = transliterator_result19.replace("Q", "ʾi")
+    transliterator_result21 = transliterator_result20.replace("Z","ʾā")
+    transliterator_result22 = transliterator_result21.replace(" al", " al-")
+    transliterator_result23 = transliterator_result22.replace("W", "ʾu")
+    transliterator_result24 = transliterator_result23.replace("X", "ʾa")
+    transliterator_result25 = transliterator_result24.replace(" ū", "w-")
+    transliterator_result26 = transliterator_result25.replace(" fal-", " f'al-")
+   
 
     #linking cursive up
-    transliterator_text = arabic_reshaper.reshape(transliterator_result19)
+    transliterator_text = arabic_reshaper.reshape(transliterator_result26)
 
     print(transliterator_text)
 
@@ -220,9 +252,17 @@ def transliterate():
     bidi_text = get_display(transliterator_text, upper_is_rtl=True)
     print (bidi_text)
 
+    # if input_lang_ar:
+    #     input_direction="<span dir=\"rtl\">"
+    #     output_direction="<span dir=\"ltr\">"
+    # else:
+    #     input_direction="<span dir=\"ltr\">"
+    #     output_direction="<span dir=\"rtl\">"
+    
 
-
-    return render_template("index.html", inputTextFromForm=inputTextFromForm, transliterator_text=transliterator_text)
+    print(input_lang_ar)
+    print(set(unhandled_letters))
+    return render_template("index.html", input_lang_ar=input_lang_ar, inputTextFromForm=inputTextFromForm, transliterator_text=transliterator_text)
 
 
 

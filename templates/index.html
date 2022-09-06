@@ -41,10 +41,12 @@
         </form></div>
         <br>
         {% if transliterator_text %}
- <div class="center"><p>Original input:</p>
-        <p class="left">{{inputTextFromForm}}</p>
-        <p>Transliteration:</p>
-        <p class="results"><span dir="rtl">{{transliterator_text}}</span></p>
+ <div class="display"><p class="center">Original input:</p>
+        {% if input_lang_ar == true %} <span style="text-align: right;"> {% else %} <span style="text-align: left;"> {% endif %}
+ <p>{{inputTextFromForm}}</p></span>
+        <p class="center">Transliteration:</p> 
+        {% if input_lang_ar == true %} <span style="text-align: left;"> {% else %} <span style="text-align: right;"> {% endif %}
+        <p class="results">{{transliterator_text}}</p></span>
         <button type="submit" class="submit-button" id="reset" action="/">Reset</button>
     </div>  {% else %}
             {% endif %}

@@ -1,6 +1,7 @@
 const form_section = document.getElementById("form-section")
 const form_button = document.getElementById("form-button")
 const reset_button = document.getElementById("reset")
+const user_input = document.getElementById("inputText")
 
 window.addEventListener('load', (event) => {
     console.log("loaded")
@@ -19,3 +20,4 @@ window.addEventListener('load', (event) => {
         reset_button.style.display = "none";
         window.location.pathname = "/";
     }
+
