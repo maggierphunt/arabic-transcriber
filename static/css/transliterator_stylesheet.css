@@ -66,7 +66,6 @@ font-size: 20px;
 }
 
 
-
 /*content boxes*/
 footer {
     margin-bottom: 50px;
@@ -113,7 +112,10 @@ footer {
 }
 .display {
     text-align: auto;
-    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .form-check-label {
