@@ -146,7 +146,8 @@ def transliterate():
     "ئ" : "Z",
     "،" : ",",
     "," : "،",
-    "ﹼ":""}
+    "ﹼ" : "",
+    "-" : ""}
 
     #todo add numbers
     #transliteration source https://www.cambridge.org/core/services/aop-file-manager/file/57d83390f6ea5a022234b400/TransChart.pdf
@@ -229,7 +230,7 @@ def transliterate():
         print("ok")
         transliterator_text = transliterator_reshaped
     
-    #capitalisation is not consistent with tge arabic reshaper working, which is needed to process special characters in transcription
+    
     
 
     print(transliterator_text)
