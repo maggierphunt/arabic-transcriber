@@ -58,6 +58,8 @@ def transliterate():
     lower_inputTextFromForm26 = lower_inputTextFromForm25.replace("ﺉ", "ءﻯ")
     lower_inputTextFromForm27 = lower_inputTextFromForm26.replace("w", "ū")
 
+    #insert - logic for vowels - if after vowl, consonant, if after consonant, vowel
+
     TextTotransliterate = list(lower_inputTextFromForm27)
     print("to transliterate "+ str(TextTotransliterate))
 

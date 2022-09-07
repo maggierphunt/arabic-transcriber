@@ -22,7 +22,6 @@ window.addEventListener('load', (event) => {
     }
     )
 
-
 form_button.onclick = function() {
      if (form.checkValidity()){
         console.log("loading")
@@ -31,7 +30,6 @@ form_button.onclick = function() {
     window.location.pathname = "/";
 }
  }
-
 
 reset_button.onclick = function() {
     console.log("closing")
