@@ -61,7 +61,7 @@ def transliterate():
     TextTotransliterate = list(lower_inputTextFromForm27)
     print("to transliterate "+ str(TextTotransliterate))
 
-    #mapping
+    #mapping main dict
     characters = {
     "ʾ" : "ء",
     "b" :"ب",

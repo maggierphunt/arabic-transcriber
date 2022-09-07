@@ -9,7 +9,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
        
-        
     
     <!-- meta -->
         <meta name="author" content="Maggie Hunt">
@@ -17,7 +16,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="A transliteration tool, to convert between the Latin and Arabic alphabets, using the IJMES Transliteration System.">
-        <meta name="keywords" content="python,HTML,CSS,javascript,Arabic,transcrier,transcription,cursive,BiDi,reshaper,arabic_reshaper,coding,programming">
+        <meta name="keywords" content="python,HTML,CSS,javascript,Arabic,transliterator,transliteration, transliterate, transliterating,cursive,BiDi,reshaper,arabic_reshaper,coding,programming">
         
     </head>
     <body>
@@ -25,13 +24,11 @@
         <h1>Arabic Transliterator</h1>
                    <div class="main_content">
                     <p>Welcome to the Arabic Transliterator!
-                    <br>You can use this to transliterate into and out of Arabic.
-            </ul>
-        </p> 
+                    <br>You can use this to transliterate into and out of Arabic. </p> 
         <div id="loader">
-        <div class="loader-flex">
-        <div class="loader"></div> </div>
-   <div><p class="disclaimer">Loading...</p></div></div>
+            <div class="loader-flex"><div class="loader"></div> </div>
+            <div><p class="disclaimer">Loading...</p></div>
+        </div>
 <div id="form-section">
         <form id=transliteratorForm action="/transliterator"  method="post" enctype="multipart/form-data">
             <div class="form-group">
@@ -41,36 +38,51 @@
               <p>Please note, this transliterator does not currently add sukūn markings, rectify double letters when transliterating into Arabic with a shaddah,
                 process tanween fatḥa/ḍamma/kasra, handle Qur'anic annotation signs, or assume any implied vowel sounds.</p>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="exampleCheck1" required>
                 <label class="form-check-label disclaimer" for="exampleCheck1">I understand that this website is for academic purposes only, and I will independently verify that my transliteration is accurate before using it for personal, professional or political purposes.</label>
             </div>
                 <button type="submit" class="submit-button" id="form-button">Submit</button>
-        </form></div>
-        {% if transliterator_text %}
- <div class="display"><h3 class="center">Original input:</h3>
-        {% if input_lang_ar == true %} <span style="text-align: right;"> {% else %} <span style="text-align: left;"> {% endif %}
- <p>{{inputTextFromForm}}</p></span>
-        <h3 class="center">Transliteration:</h3> 
-        {% if input_lang_ar == true %} <span style="text-align: left;"> {% else %} <span style="text-align: right;"> {% endif %}
-        <p class="results">{{transliterator_text}}</p></span>
-        <button type="submit" class="submit-button" id="reset" action="/">Reset</button>
-    </div>  {% else %}
-            {% endif %}
+        </form>
+</div>
+
+{% if transliterator_text %}
+ <div class="display">
+    <h3 class="center">Original input:</h3>
+        {% if input_lang_ar == true %}
+            <span style="text-align: right;">
+        {% else %}
+            <span style="text-align: left;">
+        {% endif %}
+    <p>{{inputTextFromForm}}</p></span>
+    <h3 class="center">Transliteration:</h3> 
+        {% if input_lang_ar == true %}
+            <span style="text-align: left;">
+        {% else %}
+            <span style="text-align: right;">
+        {% endif %}
+    <p class="results">{{transliterator_text}}</p></span>
+    <button type="submit" class="submit-button" id="reset" action="/">Reset</button>
+    </div>
+{% else %}
+{% endif %}
 
 </div>
-        <footer>
-            <div class="footer-flex">
+    <footer>
+        <div class="footer-flex">
             <div class="footer-layer">
                 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="maggierph" data-color="#ffffff" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00">
-
-                </script></div>
+                </script>
+            </div>
             <div class="footer-layer">
                 <a href="https://www.linkedin.com/in/maggierphunt/" title="Connect on Linkedin" target=blank><img src="../static/images/linkedinicon.png" alt="Reach out on Linkedin" class="social-logo"></a>
                 <a href="https://github.com/maggierphunt/arabic-transcriber" title="View on GitHub" target=blank><img src="../static/images/githubicon.png" alt="See the code!" class="social-logo"></a>
-                </div>
-            <div class="footer-layer hide-on-mob"><p class="credit-text"><br><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/">Background image by Andreea Ch, via Pexels</a></p>
             </div>
-        </div></footer> </div>
+            <div class="footer-layer hide-on-mob">
+                <p class="credit-text"><br><a href ="https://www.pexels.com/photo/beige-concrete-walls-1047284/">Background image by Andreea Ch, via Pexels.</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
  </body>
         <!-- scripts-->
         <script src="../static/js/transliterator_script.js"></script>
