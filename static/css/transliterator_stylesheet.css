@@ -75,6 +75,8 @@ p, ul {
 }
 .credit-text {
     font-size: 12px;
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -127,7 +129,7 @@ p, ul {
 footer {
     margin-bottom: 50px;
     align-self: center;
-    align-items: baseline;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: calc(100% - 200px);
@@ -137,7 +139,7 @@ footer {
 .footer-flex {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -196,7 +198,7 @@ button a:active {
 
     h1 {
         font-size: small;
-        padding: 20px;
+        padding: 10px;
     }
     h2 {
         font-size: smaller;
@@ -227,7 +229,7 @@ button a:active {
     .main_content {
         padding-bottom: 30px;
         overflow: scroll;
-        height: calc(80% - 80px);
+        height: calc(90% - 70px);
     }
     
     .content_box {
