@@ -175,8 +175,8 @@ button a {
 
 button:hover {
     text-decoration: none;
-    background-color: white;
-    opacity: 50%;
+    background-color: rgb(240, 235, 235);
+    opacity: 80%;
 }
 
 button a:visited {
