@@ -67,6 +67,7 @@ p, ul {
     padding: 30px;
     width: 100%;
     text-align: left;
+    border-radius: 7px 7px 7px 7px;
     }
 
 
@@ -97,6 +98,8 @@ p, ul {
     margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
+    border-radius: 15px 15px 15px 15px;
+
 }
 
 .main_content {
@@ -167,6 +170,7 @@ footer {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
 
 /*button code*/
 button a {
@@ -254,5 +258,6 @@ button a:active {
         text-align: center ;
         margin:0 auto;
         font-size: 14px;
+        border-radius: 5px 5px 5px 5px;
         }
 }
